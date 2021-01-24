@@ -5,29 +5,9 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+
+	"example.com/helpers"
 )
-
-func min(b []int) int {
-	// return minimum value from slice
-	var m int
-	for i, v := range b {
-		if i == 0 || v < m {
-			m = v
-		}
-	}
-	return m
-}
-
-func max(b []int) int {
-	// return maximum value from slice
-	var m int
-	for i, v := range b {
-		if i == 0 || v > m {
-			m = v
-		}
-	}
-	return m
-}
 
 func checksum(txt string) int {
 	sum := 0
@@ -47,9 +27,9 @@ func checksum(txt string) int {
 			b[i], _ = strconv.Atoi(v)
 		}
 		// calcuate max
-		max := max(b)
+		max := helpers.Max(b)
 		// calculate min
-		min := min(b)
+		min := helpers.Min(b)
 		// add max less min to sum
 		sum += max - min
 	}
